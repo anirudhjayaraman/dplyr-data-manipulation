@@ -38,7 +38,8 @@ cancellationEmpty <- hflights$CancellationCode == ""
 # Assign 'E' to the empty entries
 hflights$CancellationCode[cancellationEmpty] <- 'E'
 
-# Use the lookup table to create a vector of code labels. Assign the vector to the CancellationCode column of hflights
+# Use a new lookup table to create a vector of code labels. Assign the vector to the CancellationCode column of hflights
+lut = c('A' = 'carrier', 'B' = 'weather', 'C' = 'FFA', 'D' = 'security', 'E' = 'not cancelled')
 hflights$CancellationCode <- lut[hflights$CancellationCode]
 
 # Inspect the resulting raw values of your variables
